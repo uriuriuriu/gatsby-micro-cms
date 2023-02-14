@@ -23,6 +23,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           <li key={node.blogsId}>
             <Link to={`/blog/${node.blogsId}`}>{node.title}</Link>
             <span>{node.publishedAt}</span>
+            <span>{node.writer?.name}</span>
           </li>
         ))}
       </ul>
@@ -43,6 +44,9 @@ export const query = graphql`
           content
           publishedAt
           createdAt
+          writer {
+            name
+          }
         }
       }
     }
