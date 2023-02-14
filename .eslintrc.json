@@ -4,9 +4,14 @@
     "es2021": true
   },
   "extends": [
+    "airbnb",
     "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
@@ -14,6 +19,41 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
+  },
   "plugins": ["react", "@typescript-eslint"],
-  "rules": {}
+  "rules": {
+    "no-use-before-define": "off",
+    "quotes": [2, "single", { "avoidEscape": true }],
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".jsx", ".tsx"] }
+    ],
+    "react/prop-types": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "react/no-danger": "off",
+    "react/no-unescaped-entities": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  }
 }
