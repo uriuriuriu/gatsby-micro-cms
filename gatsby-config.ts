@@ -1,5 +1,10 @@
 import type { GatsbyConfig } from 'gatsby';
 
+const path = require('path');
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `gatsbyMicroCMS`,
@@ -12,6 +17,7 @@ const config: GatsbyConfig = {
   plugins: [
     'gatsby-plugin-styled-components',
     'gatsby-plugin-mdx',
+    'gatsby-plugin-typegen',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -29,6 +35,29 @@ const config: GatsbyConfig = {
         options: {
           emitWarning: true,
           failOnError: false,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-source-microcms',
+      options: {
+        apiKey: process.env.API_KEY,
+        serviceId: process.env.API_SERVICE_ID,
+        apis: [
+          {
+            endpoint: 'blogs',
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-typegen`,
+      options: {
+        emitSchema: {
+          'src/__generated__/gatsby-introspection.json': true,
+        },
+        emitPluginDocument: {
+          'src/__generated__/gatsby-plugin-documents.graphql': true,
         },
       },
     },
