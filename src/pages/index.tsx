@@ -18,12 +18,11 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
     <main style={pageStyles}>
       <h1 style={headingStyles}>Congratulations</h1>
       <ul>
-        {/* <p>{JSON.stringify(data.allMicrocmsBlogs.edges)}</p> */}
         {data.allMicrocmsBlogs.edges.map(({ node }) => (
           <li key={node.blogsId}>
             <Link to={`/blog/${node.blogsId}`}>{node.title}</Link>
-            <span>{node.publishedAt}</span>
-            <span>{node.writer?.name}</span>
+            <span>📅: {node.publishedAt}</span>
+            <span>✏️: {node.writer?.name}</span>
           </li>
         ))}
       </ul>
