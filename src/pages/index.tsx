@@ -17,6 +17,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>Congratulations</h1>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <ul>
         {data.allMicrocmsBlogs.edges.map(({ node }) => (
           <li key={node.blogsId}>

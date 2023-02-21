@@ -18,6 +18,7 @@ const config: GatsbyConfig = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-mdx',
     'gatsby-plugin-typegen',
+    'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
