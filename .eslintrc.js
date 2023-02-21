@@ -14,6 +14,7 @@ module.exports = {
     'prettier',
     'prettier/@typescript-eslint',
     'prettier/react',
+    'plugin:tailwindcss/recommended',
   ],
   overrides: [],
   parser: '@typescript-eslint/parser',
@@ -28,7 +29,7 @@ module.exports = {
       },
     },
   },
-  plugins: ['react', '@typescript-eslint', 'graphql'],
+  plugins: ['react', '@typescript-eslint', 'graphql', 'tailwindcss'],
   rules: {
     'no-anonymous-exports-page-templates': 'warn',
     'limited-exports-page-templates': 'warn',
