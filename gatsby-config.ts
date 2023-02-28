@@ -18,7 +18,7 @@ const config: GatsbyConfig = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-mdx',
     'gatsby-plugin-typegen',
-    'gatsby-plugin-material-ui',
+    'gatsby-theme-material-ui',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -62,6 +62,21 @@ const config: GatsbyConfig = {
         },
         emitPluginDocument: {
           'src/__generated__/gatsby-plugin-documents.graphql': true,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-theme-material-ui`,
+      options: {
+        webFontsConfig: {
+          fonts: {
+            google: [
+              {
+                family: `Montserrat`,
+                variants: [`300`, `400`, `700`],
+              },
+            ],
+          },
         },
       },
     },

@@ -1,5 +1,6 @@
 import { graphql, Link, PageProps } from 'gatsby';
 import React from 'react';
+import GlobalNav from '../components/globalNav';
 
 type PageContext = {
   next: {
@@ -20,6 +21,7 @@ export default function BlogPage({
   const { microcmsBlogs } = data;
   return (
     <main>
+      <GlobalNav />
       <h1>{microcmsBlogs?.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: microcmsBlogs?.content ?? '' }} />
       <ul>
@@ -36,9 +38,6 @@ export default function BlogPage({
           </li>
         )}
       </ul>
-      <p>
-        <Link to={`/blogs/`}>一覧</Link>
-      </p>
     </main>
   );
 }
