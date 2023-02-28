@@ -21,7 +21,7 @@ export default function BlogPage({
   const { microcmsBlogs } = data;
   return (
     <main>
-      <GlobalNav window={() => window} />
+      <GlobalNav />
       <h1>{microcmsBlogs?.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: microcmsBlogs?.content ?? '' }} />
       <ul>

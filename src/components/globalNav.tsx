@@ -30,14 +30,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 interface Props {
-  window?: () => Window;
   children?: React.ReactElement;
 }
 
 const HideOnScroll: React.FC<Props> = props => {
-  const { children, window } = props;
+  const { children } = props;
   const trigger = useScrollTrigger({
-    target: window ? window() : undefined,
+    target: typeof window !== `undefined` ? window : undefined,
   });
 
   return (
