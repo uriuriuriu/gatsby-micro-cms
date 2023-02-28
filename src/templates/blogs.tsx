@@ -1,6 +1,7 @@
 import { graphql, Link, navigate, PageProps } from 'gatsby';
 import React from 'react';
 import { formatDate } from '../utils/date';
+import GlobalNav from '../components/globalNav';
 
 type PageContext = {
   limit: number;
@@ -18,6 +19,7 @@ const BlogsPage: React.FC<PageProps<Queries.BlogsPageQuery, PageContext>> = ({
   const { allMicrocmsBlogs } = data;
   return (
     <main>
+      <GlobalNav window={() => window} />
       <h1>ブログ一覧</h1>
       <p>
         {totalCount} 件中 {offset + 1} 件目から {limit} 件表示

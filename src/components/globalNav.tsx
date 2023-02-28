@@ -1,12 +1,29 @@
 import React from 'react';
-import type { HeadFC, PageProps } from 'gatsby';
-import { graphql, Link } from 'gatsby';
+import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'gatsby-theme-material-ui';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
+import ListIcon from '@material-ui/icons/List';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  appBar: {
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
+  },
+  titleLink: {
+    flexGrow: 1,
+    color: '#000',
+    textDecoration: 'none',
+  },
+  link: { color: '#000', textDecoration: 'none' },
+}));
 
 interface Props {
   window?: () => Window;
@@ -27,17 +44,29 @@ const HideOnScroll: React.FC<Props> = props => {
 };
 
 const GlobalNav: React.FC<Props> = props => {
+  const classes = useStyles();
   return (
     <>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar>
-          <Toolbar>
-            <Typography variant="h6" component="div">
-              blogs
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <div className={classes.root}>
+          <AppBar className={classes.appBar}>
+            <Toolbar>
+              <Link to={`/`} className={classes.titleLink}>
+                <Typography
+                  variant="h6"
+                  component="div"
+                  className={classes.title}
+                >
+                  blogs
+                </Typography>
+              </Link>
+              <Link to={`/blogs/`} className={classes.link}>
+                <ListIcon />
+              </Link>
+            </Toolbar>
+          </AppBar>
+        </div>
       </HideOnScroll>
       <Toolbar />
     </>
