@@ -11,13 +11,13 @@ const pageStyles = {
 };
 const liStyles = {
   marginTop: 32,
-  marginBottom: 164,
+  marginBottom: 264,
 };
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   return (
     <main style={pageStyles}>
-      <GlobalNav window={() => window} />
+      <GlobalNav />
       <Container>
         <ul>
           {data.allMicrocmsBlogs.edges.map(({ node }) => (

@@ -26,14 +26,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 interface Props {
-  window?: () => Window;
   children?: React.ReactElement;
 }
 
 const HideOnScroll: React.FC<Props> = props => {
-  const { children, window } = props;
+  const { children } = props;
   const trigger = useScrollTrigger({
-    target: window ? window() : undefined,
+    target: (() => window)(),
   });
 
   return (
@@ -53,11 +52,7 @@ const GlobalNav: React.FC<Props> = props => {
           <AppBar className={classes.appBar}>
             <Toolbar>
               <Link to={`/`} className={classes.titleLink}>
-                <Typography
-                  variant="h6"
-                  component="div"
-                  className={classes.title}
-                >
+                <Typography variant="h6" component="div">
                   blogs
                 </Typography>
               </Link>
