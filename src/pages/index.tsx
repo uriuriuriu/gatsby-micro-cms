@@ -2,6 +2,9 @@ import React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
 import { graphql, Link } from 'gatsby';
 import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
+import GlobalNav from '../components/globalNav';
 
 const pageStyles = {
   color: '#232129',
@@ -17,6 +20,7 @@ const headingStyles = {
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   return (
     <main style={pageStyles}>
+      <GlobalNav window={() => window} />
       <h1 style={headingStyles}>Congratulations</h1>
       <Button variant="text">Text</Button>
       <Button variant="contained">Contained</Button>
