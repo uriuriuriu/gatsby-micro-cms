@@ -24,12 +24,17 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       <ul>
         {data.allMicrocmsBlogs.edges.map(({ node }) => (
           <li key={node.blogsId}>
-            <Link to={`/blog/${node.blogsId}`}>{node.title}</Link>
+            <Link to={`/blog/${node.blogsId}`}>
+              {node.blogsId} / {node.title}
+            </Link>
             <span>📅: {node.publishedAt}</span>
             <span>✏️: {node.writer?.name}</span>
           </li>
         ))}
       </ul>
+      <p>
+        <Link to={`/blogs/`}>一覧</Link>
+      </p>
     </main>
   );
 };
@@ -41,7 +46,6 @@ export const query = graphql`
     allMicrocmsBlogs(sort: { createdAt: DESC }) {
       edges {
         node {
-          id
           blogsId
           title
           content
