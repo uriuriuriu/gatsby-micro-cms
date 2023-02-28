@@ -26,16 +26,19 @@ export default function BlogPage({
         {next && (
           <li>
             次へ：
-            <Link to={`/blogs/${next.blogsId}/`}>{next.title}</Link>
+            <Link to={`/blog/${next.blogsId}/`}>{next.title}</Link>
           </li>
         )}
         {previous && (
           <li>
             前へ：
-            <Link to={`/blogs/${previous.blogsId}/`}>{previous.title}</Link>
+            <Link to={`/blog/${previous.blogsId}/`}>{previous.title}</Link>
           </li>
         )}
       </ul>
+      <p>
+        <Link to={`/blogs/`}>一覧</Link>
+      </p>
     </main>
   );
 }
