@@ -19,7 +19,7 @@ const liStyles = {
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   return (
     <main style={pageStyles}>
-      <GlobalNav />
+      <GlobalNav window={() => window} />
       <Container>
         <ul>
           {data.allMicrocmsBlogs.edges.map(({ node }) => (
