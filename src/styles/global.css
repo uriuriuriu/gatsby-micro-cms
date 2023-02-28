@@ -1,0 +1,21 @@
+* [class^='MuiTypography-'] {
+  font-family: 'Montserrat', 'sans-serif';
+}
+.MuiTypography-h1 {
+  font-weight: 700;
+}
+.MuiTypography-h2 {
+  font-weight: 700;
+}
+.MuiTypography-h3 {
+  font-weight: 700;
+}
+.MuiTypography-h4 {
+  font-weight: 700;
+}
+.MuiTypography-h5 {
+  font-weight: 700;
+}
+.MuiTypography-body1 {
+  font-weight: 300;
+}

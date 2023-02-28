@@ -22,6 +22,10 @@ const useStyles = makeStyles(theme => ({
     color: '#000',
     textDecoration: 'none',
   },
+  title: {
+    color: '#000',
+    textDecoration: 'none',
+  },
   link: { color: '#000', textDecoration: 'none' },
 }));
 
@@ -52,7 +56,11 @@ const GlobalNav: React.FC<Props> = props => {
           <AppBar className={classes.appBar}>
             <Toolbar>
               <Link to={`/`} className={classes.titleLink}>
-                <Typography variant="h6" component="div">
+                <Typography
+                  variant="h6"
+                  component="div"
+                  className={classes.title}
+                >
                   blogs
                 </Typography>
               </Link>

@@ -3,6 +3,7 @@ import type { HeadFC, PageProps } from 'gatsby';
 import { graphql, Link } from 'gatsby';
 import Container from '@material-ui/core/Container';
 import GlobalNav from '../components/globalNav';
+import Card from '../components/blog/card';
 
 const pageStyles = {
   color: '#232129',
@@ -11,7 +12,8 @@ const pageStyles = {
 };
 const liStyles = {
   marginTop: 32,
-  marginBottom: 264,
+  marginBottom: 64,
+  listStyleType: 'none',
 };
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
@@ -22,11 +24,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         <ul>
           {data.allMicrocmsBlogs.edges.map(({ node }) => (
             <li key={node.blogsId} style={liStyles}>
-              <Link to={`/blog/${node.blogsId}`}>
-                {node.blogsId} / {node.title}
-              </Link>
-              <span>📅: {node.publishedAt}</span>
-              <span>✏️: {node.writer?.name}</span>
+              <Card {...node} />
             </li>
           ))}
         </ul>
