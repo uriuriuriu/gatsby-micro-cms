@@ -19,7 +19,7 @@ const BlogsPage: React.FC<PageProps<Queries.BlogsPageQuery, PageContext>> = ({
   const { allMicrocmsBlogs } = data;
   return (
     <main>
-      <GlobalNav window={() => window} />
+      <GlobalNav />
       <h1>ブログ一覧</h1>
       <p>
         {totalCount} 件中 {offset + 1} 件目から {limit} 件表示
